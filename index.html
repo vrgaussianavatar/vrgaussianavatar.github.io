@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="description" content="VRGaussianAvatar: Integrating 3D Gaussian Avatars into VR">
+    <meta name="keywords"
+        content="Virtual reality, Augmented reality, 3D Gaussian Splatting, Avatar reconstruction, Stereoscopic rendering">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>VRGaussianAvatar: Integrating 3D Gaussian Avatars into VR</title>
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+
+    gtag('config', 'G-PYVRSFMDRL');
+  </script> -->
+
+    <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma-carousel@4.0.3/dist/css/bulma-carousel.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma-slider@2.0.4/dist/css/bulma-slider.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+    <link rel="stylesheet" href="./static/css/index.css">
+    <link rel="icon" href="./static/images/icon.png">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/js/all.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bulma-carousel@4.0.3/dist/js/bulma-carousel.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bulma-slider@2.0.4/dist/js/bulma-slider.min.js"></script>
+    <script src="./static/js/index.js"></script>
+</head>
+
+<body>
+    <img src="./static/images/bar.png" class="decorative-bar" alt="Decorative Bar" style="margin-top: 0;">
+
+
+
+
+    <section class="hero">
+        <div class="hero-body">
+            <div class="container is-max-desktop">
+                <div class="columns is-centered">
+                    <div class="column has-text-centered">
+                        <h1 class="title publication-title">
+                            <img src="./static/images/icon.png" alt="VRGaussianAvatar Icon"
+                                style="height: 1.8em; vertical-align: middle; margin-right: 6px; margin-bottom: 8px;">
+                            <span class="title-gradient">VRGaussianAvatar</span>: Integrating 3D Gaussian Avatars into
+                            VR
+                        </h1>
+                        <div class="is-size-5 publication-authors">
+                            <span class="author-block">
+                                <a href="https://hailsong.github.io">Hail Song</a><sup>1</sup>,</span>
+                            <span class="author-block">
+                                <a href="mailto:boram.yoon1206@kaist.ac.kr">Boram Yoon</a><sup>2</sup>,</span>
+                            <span class="author-block">
+                                <a href="mailto:ysshwan147@kaist.ac.kr">Seokhwan Yang</a><sup>1</sup>,</span>
+                            <span class="author-block">
+                                <a href="mailto:sy1009kang@kaist.ac.kr">Seoyoung Kang</a><sup>1</sup>,</span>
+                            <span class="author-block">
+                                <a href="mailto:hcihjkim@gmail.com">Hyunjeong Kim</a><sup>3,4</sup>,</span>
+                            <span class="author-block">
+                                <a href="mailto:henning.metzmacher@inf.ethz.ch">Henning
+                                    Metzmacher</a><sup>4</sup>,</span>
+                            <span class="author-block">
+                                <a href="mailto:wwoo@kaist.ac.kr">Woontack Woo</a><sup>1,2</sup>
+                            </span>
+                        </div>
+
+                        <div class="is-size-5 publication-authors">
+                            <span class="author-block"><sup>1</sup>KAIST UVR Lab,</span>
+                            <span class="author-block"><sup>2</sup>KAIST KI-ITC ARRC,</span>
+                            <span class="author-block"><sup>3</sup>Hansung University,</span>
+                            <span class="author-block"><sup>4</sup>ETH Zurich, Game Technology Center</span>
+                        </div>
+
+                        <div class="column has-text-centered">
+                            <div class="publication-venue">
+                                <!-- IEEE Transactions on Visualization and Computer Graphics (TVCG) 2026 -->
+                                Under Review
+                            </div>
+                        </div>
+
+                        <div class="column has-text-centered">
+                            <div class="publication-links">
+                                <!-- PDF Link. -->
+                                <span class="link-block">
+                                    <a href="./static/pdf/VRGA_revised.pdf"
+                                        class="external-link button is-normal is-rounded is-dark">
+                                        <span class="icon">
+                                            <i class="fas fa-file-pdf"></i>
+                                        </span>
+                                        <span>Paper</span>
+                                    </a>
+                                </span>
+                                <!-- Video Link. -->
+                                <!-- <span class="link-block">
+                                    <a href="#" class="external-link button is-normal is-rounded is-dark">
+                                        <span class="icon">
+                                            <i class="fab fa-youtube"></i>
+                                        </span>
+                                        <span>Video</span>
+                                    </a>
+                                </span> -->
+                                <!-- Code Link. -->
+                                <span class="link-block">
+                                    <a href="https://github.com/hailsong/VRGaussianAvatar"
+                                        class="external-link button is-normal is-rounded is-dark">
+                                        <span class="icon">
+                                            <i class="fab fa-github"></i>
+                                        </span>
+                                        <span>Code</span>
+                                    </a>
+                                </span>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section class="section">
+        <div class="container is-max-desktop">
+            <!-- Abstract. -->
+            <!-- TL;DR -->
+            <div class="columns is-centered has-text-centered" style="margin-bottom: 3rem;">
+                <div class="column is-four-fifths">
+                    <div class="content has-text-centered">
+                        <h2 class="title is-3" style="margin-bottom: 1rem;">TL; DR</h2>
+                        <p class="is-size-5 has-text-weight-bold">
+                            We present VRGaussianAvatar, an integrated system that enables real-time full-body 3DGS
+                            avatars in virtual reality using only HMD tracking signals.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Teaser Image -->
+            <div class="columns is-centered has-text-centered" style="margin-bottom: 3rem;">
+                <div class="column is-full-width">
+                    <img src="./static/images/teaser.png" class="teaser-img" width="100%">
+                    <div class="content has-text-justified" style="margin-top: 1rem;">
+                        <p>
+                            We introduce <strong>VRGaussianAvatar</strong>, an integrated VR system for controllable
+                            full-body 3DGS avatar representation.
+                            (A) A single input image is used to reconstruct a full-body 3D Gaussian Splatting avatar.
+                            (B) The reconstructed avatar supports real-time rendering and full controllability in VR
+                            using only the internal sensors of commercial head-mounted displays (HMDs).
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Abstract -->
+            <div class="columns is-centered has-text-centered" style="margin-bottom: 3rem;">
+                <div class="column is-four-fifths">
+                    <h2 class="title is-3 has-text-centered">Abstract</h2>
+                    <div class="content has-text-justified">
+                        <p>
+                            We present VRGaussianAvatar, an integrated system that enables real-time full-body 3D
+                            Gaussian Splatting (3DGS) avatars in virtual reality using only head-mounted display (HMD)
+                            tracking signals. The system adopts a parallel pipeline with a VR Frontend and a GA Backend.
+                            The VR Frontend uses inverse kinematics to estimate full-body pose and streams the resulting
+                            pose along with stereo camera parameters to the backend. The GA Backend stereoscopically
+                            renders a 3DGS avatar reconstructed from a single image. To improve stereo rendering
+                            efficiency, we introduce Binocular Batching, which jointly processes left and right eye
+                            views in a single batched pass to reduce redundant computation and support high-resolution
+                            VR displays. We evaluate VRGaussianAvatar with quantitative performance tests and a
+                            within-subject user study against image- and video-based mesh avatar baselines. Results show
+                            that VRGaussianAvatar sustains interactive VR performance and yields higher perceived
+                            appearance similarity, embodiment, and plausibility.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <!--/ Abstract. -->
+
+
+            <div class="columns is-centered" style="margin-bottom: 3rem;">
+                <div class="column is-full-width">
+                    <h2 class="title is-3 has-text-centered">Method</h2>
+                    <div class="content has-text-centered">
+                        <img src="./static/images/main.png" width="100%" style="margin-bottom: 1.5rem;">
+                    </div>
+                    <div class="content has-text-justified">
+                        <p>
+                            <strong>VRGaussianAvatar</strong> is structured as a parallel framework with a <strong>VR
+                                Frontend</strong> and a <strong>GA Backend</strong>.
+                            The VR Frontend estimates full-body pose from HMD sensors and provides per-frame camera
+                            parameters.
+                            The GA Backend animates and renders the pre-reconstructed 3DGS avatar, incorporating a
+                            <strong>Binocular Batching</strong> strategy for efficient stereoscopic rendering.
+                            In our reference setup, the VR Frontend and GA Backend communicate over localhost to
+                            minimize network overhead.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+            <!-- Paper video. -->
+            <div class="columns is-centered has-text-centered" style="margin-top: 2rem;">
+                <div class="column is-four-fifths">
+                    <h2 class="title is-3 has-text-centered">Video</h2>
+                    <div class="publication-video">
+                        <iframe src="https://www.youtube.com/embed/ZbWBauHPXog?rel=0&amp;showinfo=0" frameborder="0"
+                            allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                    </div>
+                </div>
+            </div>
+            <!--/ Paper video. -->
+
+        </div>
+    </section>
+
+
+    <section class="section" id="BibTeX">
+        <div class="container is-max-desktop content">
+            <h2 class="title">BibTeX</h2>
+            <pre><code>Will be updated soon!
+<!-- @article{kim2026scenelinker,
+  author    = {Song, Hail and Yoon, Boram and Yang, Seokhwan and Kang, Seoyoung and Kim, Hyunjeong and Metzmacher, Henning and Woo, Woontack},
+  title     = {VRGaussianAvatar: Integrating 3D Gaussian Avatars into VR},
+  journal   = {Conference},
+  year      = {2026},
+} --></code></pre>
+        </div>
+    </section>
+    <img src="./static/images/bar.png" class="decorative-bar" alt="Decorative Bar">
+    <section class="section">
+        <div class="container is-max-desktop">
+
+            <div class="logo-row">
+                <a href="https://www.kaist.ac.kr/" target="_blank">
+                    <img src="./static/images/logos/kaist.png" alt="KAIST">
+                </a>
+                <a href="http://uvr.kaist.ac.kr/" target="_blank">
+                    <img src="./static/images/logos/uvr.png" alt="UVR Lab">
+                </a>
+                <a href="https://ethz.ch/" target="_blank">
+                    <img src="./static/images/logos/eth.png" alt="ETH Zurich">
+                </a>
+                <a href="https://www.hansung.ac.kr/" target="_blank">
+                    <img src="./static/images/logos/hsu.png" alt="Hansung University">
+                </a>
+            </div>
+        </div>
+    </section>
+
+
+    <footer class="footer">
+        <div class="container">
+            <div class="content has-text-centered">
+                <a class="icon-link" href="./static/pdf/VRGA_revised.pdf">
+                    <i class="fas fa-file-pdf"></i>
+                </a>
+                <a class="icon-link" href="https://github.com/hailsong/VRGaussianAvatar" class="external-link" disabled>
+                    <i class="fab fa-github"></i>
+                </a>
+            </div>
+            <div class="columns is-centered">
+                <div class="column is-8">
+                    <div class="content">
+                        <p>
+                            This website is licensed under a <a rel="license"
+                                href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
+                                Commons Attribution-ShareAlike 4.0 International License</a>.
+                        </p>
+                        <p>
+                            Website adapted from <a href="https://nerfies.github.io">nerfies</a>.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</body>
+
+</html>
